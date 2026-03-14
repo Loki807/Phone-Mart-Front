@@ -1,0 +1,170 @@
+﻿
+[1m[36m
+   ÔòöÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòù
+   Ôòæ                                                           Ôòæ
+   Ôòæ   ­ƒô▒ PHONEMART ÔÇö COMPREHENSIVE TEST SUITE                Ôòæ
+   Ôòæ                                                           Ôòæ
+   Ôòæ   Testing:                                                Ôòæ
+   Ôòæ     ÔÇó All Backend API Endpoints                           Ôòæ
+   Ôòæ     ÔÇó Frontend Ôåö Backend Connectivity                     Ôòæ
+   Ôòæ     ÔÇó Load Test: 10,000 Concurrent Customers              Ôòæ
+   Ôòæ                                                           Ôòæ
+   ÔòÜÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòØ
+[0m
+  [36mÔä╣[0m  Checking backend availability...
+  [32mÔ£à PASS[0m ÔÇö Backend is running at http://localhost:5236
+
+[1m[36mÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ[0m
+[1m  PART 1: BACKEND API ENDPOINT TESTS[0m
+[36mÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ[0m
+
+  [1m1A. Public Endpoints (No Authentication)[0m
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  [32mÔ£à PASS[0m ÔÇö GET /api/public/categories ÔåÆ 200 (3 categories, 2ms)
+  [32mÔ£à PASS[0m ÔÇö GET /api/public/brands ÔåÆ 200 (13 brands, 4ms)
+  [32mÔ£à PASS[0m ÔÇö GET /api/public/search ÔåÆ 200 (5 products, 27ms)
+  [32mÔ£à PASS[0m ÔÇö GET /api/public/search?q=iPhone ÔåÆ 200 (2 results, 28ms)
+  [32mÔ£à PASS[0m ÔÇö GET /api/public/search?category=1 ÔåÆ 200 (2 results, 23ms)
+  [32mÔ£à PASS[0m ÔÇö GET /api/public/search?city=Jaffna ÔåÆ 200 (4 results, 3ms)
+  [32mÔ£à PASS[0m ÔÇö GET /api/public/shops/{fakeId} ÔåÆ 404 (correctly returns Not Found, 17ms)
+  [32mÔ£à PASS[0m ÔÇö GET /api/public/shops/{id}/products ÔåÆ 200 (24ms)
+  [32mÔ£à PASS[0m ÔÇö GET /api/public/shops/{id}/ratings ÔåÆ 200 (13ms)
+
+  [1m1B. Auth Endpoints[0m
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  [32mÔ£à PASS[0m ÔÇö POST /api/auth/login (invalid creds) ÔåÆ 400 (correctly rejected, 13ms)
+  [32mÔ£à PASS[0m ÔÇö POST /api/auth/login (admin) ÔåÆ 200 (JWT received, 32ms)
+  [36mÔä╣[0m  Token length: 355 chars
+
+  [1m1C. Admin Endpoints (Admin JWT Required)[0m
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  [32mÔ£à PASS[0m ÔÇö GET /api/admin/shops (no token) ÔåÆ 401 (correctly unauthorized, 1ms)
+  [32mÔ£à PASS[0m ÔÇö GET /api/admin/shops ÔåÆ 200 (5 shops found, 8ms)
+  [36mÔä╣[0m    Shop: "Test Mobile Hub" ÔÇö City: Colombo
+  [36mÔä╣[0m    Shop: "Lucky Phone shop" ÔÇö City: jaffna
+  [36mÔä╣[0m    Shop: "Colombo Mobile Parts" ÔÇö City: Colombo
+  [36mÔä╣[0m    Shop: "Jaffna Mobile Hub" ÔÇö City: Jaffna
+  [36mÔä╣[0m    Shop: "Jaffna Phone Hub" ÔÇö City: Jaffna
+  [32mÔ£à PASS[0m ÔÇö GET /api/admin/shops/{id} ÔåÆ 200 (6ms)
+
+  [1m1D. Shop Owner Endpoints (Owner JWT Required)[0m
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  [32mÔ£à PASS[0m ÔÇö GET /api/shop/my-shop (no token) ÔåÆ 401 (correctly unauthorized, 1ms)
+  [32mÔ£à PASS[0m ÔÇö POST /api/auth/login (owner) ÔåÆ 200 (Owner JWT received, 24ms)
+  [32mÔ£à PASS[0m ÔÇö GET /api/shop/my-shop ÔåÆ 200 (Shop: "Jaffna Mobile Hub", 2ms)
+  [32mÔ£à PASS[0m ÔÇö GET /api/shop/products ÔåÆ 200 (5 products, 10ms)
+  [32mÔ£à PASS[0m ÔÇö GET /api/shop/wholesale ÔåÆ 200 (1 listings, 8ms)
+
+  [1m1E. Wholesale Marketplace Endpoints[0m
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  [32mÔ£à PASS[0m ÔÇö GET /api/wholesale (no token) ÔåÆ 401 (correctly unauthorized, 1ms)
+  [32mÔ£à PASS[0m ÔÇö GET /api/wholesale ÔåÆ 200 (1 marketplace listings, 16ms)
+  [32mÔ£à PASS[0m ÔÇö GET /api/wholesale?itemType=1 ÔåÆ 200 (filtered results, 13ms)
+
+  [1m1F. Image Endpoints[0m
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  [32mÔ£à PASS[0m ÔÇö POST /api/images/upload (no token) ÔåÆ 401 (correctly unauthorized, 1ms)
+
+  [1m1G. CORS Configuration[0m
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  [32mÔ£à PASS[0m ÔÇö CORS header present: Access-Control-Allow-Origin: http://localhost:4200 (2ms)
+
+[1m[36mÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ[0m
+[1m  PART 2: FRONTEND Ôåö BACKEND CONNECTIVITY[0m
+[36mÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ[0m
+
+  [1m2A. Frontend Availability[0m
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  [31mÔØî FAIL[0m ÔÇö Frontend at http://localhost:4200 ÔåÆ 404 [2m(Expected 200)[0m
+
+  [1m2B. Frontend ÔåÆ Backend API Connectivity[0m
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  [32mÔ£à PASS[0m ÔÇö Frontend ÔåÆ Categories (used by shop filters) ÔåÆ 200 (2ms)
+  [32mÔ£à PASS[0m ÔÇö Frontend ÔåÆ Brands (used by product forms) ÔåÆ 200 (2ms)
+  [32mÔ£à PASS[0m ÔÇö Frontend ÔåÆ Product Search (used by shop page) ÔåÆ 200 (2ms)
+
+  [1m2C. Frontend Route Verification[0m
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  [31mÔØî FAIL[0m ÔÇö Route / ÔåÆ 404 [2m(Home Page)[0m
+  [31mÔØî FAIL[0m ÔÇö Route /login ÔåÆ 404 [2m(Login Page)[0m
+
+  [1m2D. API Response Format Verification[0m
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  [32mÔ£à PASS[0m ÔÇö Categories API returns correct shape: { id, name } Ô£ô
+  [32mÔ£à PASS[0m ÔÇö Brands API returns correct shape: { id, name } Ô£ô
+
+[1m[36mÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ[0m
+[1m  PART 3: LOAD TEST ÔÇö 10,000 CONCURRENT REQUESTS[0m
+[36mÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ[0m
+  [36mÔä╣[0m  Simulating 10000 concurrent customer requests
+  [36mÔä╣[0m  Batch size: 500 requests per batch
+  [36mÔä╣[0m  Target endpoints: 5 public URLs (round-robin)
+  [36mÔä╣[0m  Starting load test...
+
+
+  [36mÔÅ│[0m Progress: 5% (500/10000) ÔÇö Batch 1/20: 500/500 OK
+  [36mÔÅ│[0m Progress: 10% (1000/10000) ÔÇö Batch 2/20: 500/500 OK
+  [36mÔÅ│[0m Progress: 15% (1500/10000) ÔÇö Batch 3/20: 500/500 OK
+  [36mÔÅ│[0m Progress: 20% (2000/10000) ÔÇö Batch 4/20: 500/500 OK
+  [36mÔÅ│[0m Progress: 25% (2500/10000) ÔÇö Batch 5/20: 500/500 OK
+  [36mÔÅ│[0m Progress: 30% (3000/10000) ÔÇö Batch 6/20: 500/500 OK
+  [36mÔÅ│[0m Progress: 35% (3500/10000) ÔÇö Batch 7/20: 500/500 OK
+  [36mÔÅ│[0m Progress: 40% (4000/10000) ÔÇö Batch 8/20: 500/500 OK
+  [36mÔÅ│[0m Progress: 45% (4500/10000) ÔÇö Batch 9/20: 500/500 OK
+  [36mÔÅ│[0m Progress: 50% (5000/10000) ÔÇö Batch 10/20: 500/500 OK
+  [36mÔÅ│[0m Progress: 55% (5500/10000) ÔÇö Batch 11/20: 500/500 OK
+  [36mÔÅ│[0m Progress: 60% (6000/10000) ÔÇö Batch 12/20: 500/500 OK
+  [36mÔÅ│[0m Progress: 65% (6500/10000) ÔÇö Batch 13/20: 500/500 OK
+  [36mÔÅ│[0m Progress: 70% (7000/10000) ÔÇö Batch 14/20: 500/500 OK
+  [36mÔÅ│[0m Progress: 75% (7500/10000) ÔÇö Batch 15/20: 500/500 OK
+  [36mÔÅ│[0m Progress: 80% (8000/10000) ÔÇö Batch 16/20: 500/500 OK
+  [36mÔÅ│[0m Progress: 85% (8500/10000) ÔÇö Batch 17/20: 500/500 OK
+  [36mÔÅ│[0m Progress: 90% (9000/10000) ÔÇö Batch 18/20: 500/500 OK
+  [36mÔÅ│[0m Progress: 95% (9500/10000) ÔÇö Batch 19/20: 500/500 OK
+  [36mÔÅ│[0m Progress: 100% (10000/10000) ÔÇö Batch 20/20: 500/500 OK
+
+
+  [1mLoad Test Results[0m
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+
+  [1m­ƒôè SUMMARY[0m
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  Total Requests:   10000
+  Total Time:       5.82s
+  Throughput:       [1m1719 req/sec[0m
+
+  [1m­ƒôê SUCCESS RATE[0m
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  Successful:       [32m10000[0m (100.00%)
+  Failed (HTTP):    [32m0[0m
+  Timeouts:         [32m0[0m
+  Connection Errors:[32m0[0m
+
+  [1mÔÅ▒´©Å  RESPONSE TIMES[0m
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  Min:              47ms
+  Average:          227ms
+  Median (P50):     220ms
+  P90:              284ms
+  P95:              312ms
+  P99:              397ms
+  Max:              411ms
+
+  [1m­ƒôï STATUS CODE DISTRIBUTION[0m
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  [32m200[0m: 10000 (100.0%)
+
+  [32mÔ£à PASS[0m ÔÇö Load Test PASSED ÔÇö 100.00% success rate, P95=312ms, 1719 req/sec ­ƒÜÇ
+  [36mÔä╣[0m  The backend can comfortably handle 10,000 concurrent customers!
+
+[1m[36mÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ[0m
+[1m  FINAL TEST REPORT[0m
+[36mÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ[0m
+
+  [1mTotal Tests:[0m  33
+  [32mPassed:[0m       30
+  [31mFailed:[0m       3
+  [1mSuccess Rate:[0m 90.9%
+
+  [1mVerdict:[0m      [33m[1mMOSTLY PASSED ÔÜá´©Å[0m
+  

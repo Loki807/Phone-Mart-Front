@@ -1,0 +1,12 @@
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1msrc/app/pages/shop/shop.component.scss exceeded maximum budget. Budget 4.00 kB was not met by 494 bytes with a total of 4.49 kB.[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1msrc/app/pages/home/home.component.scss exceeded maximum budget. Budget 4.00 kB was not met by 8.52 kB with a total of 12.52 kB.[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1msrc/app/pages/wholesale/wholesale.component.scss exceeded maximum budget. Budget 4.00 kB was not met by 3.17 kB with a total of 7.17 kB.[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1msrc/app/pages/home/home.component.scss exceeded maximum budget. Budget 8.00 kB was not met by 4.52 kB with a total of 12.52 kB.[0m
+
+[39m[22m

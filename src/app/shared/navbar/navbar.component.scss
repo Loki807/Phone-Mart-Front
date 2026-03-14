@@ -1,0 +1,188 @@
+@keyframes slideDownNavbar {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  height: 56px;
+  background: linear-gradient(135deg, #041e42 0%, #0a3772 50%, #145ea8 100%);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  animation: slideDownNavbar 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  box-shadow: 0 4px 20px rgba(0, 80, 180, 0.2);
+
+  .nav-brand {
+    .brand-text {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: all 0.2s;
+
+      .brand-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(8px);
+        border-radius: 10px;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      &:hover {
+        opacity: 0.95;
+
+        .brand-icon {
+          transform: scale(1.08) rotate(-3deg);
+          background: rgba(255, 255, 255, 0.3);
+        }
+      }
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0.25rem;
+
+    a {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      position: relative;
+      background: transparent;
+
+      svg {
+        opacity: 0.7;
+        transition: all 0.2s;
+      }
+
+      &:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.15);
+
+        svg {
+          opacity: 1;
+          transform: translateY(-1px);
+        }
+      }
+
+      &.active {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.2);
+        font-weight: 600;
+        box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.5);
+
+        svg {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    .role-badge {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-login {
+      background: #fff;
+      color: #2563eb;
+      padding: 0.45rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: none;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+
+      &:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px) scale(1.02);
+        background: #f0f7ff;
+      }
+    }
+
+    .btn-logout {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      padding: 0.4rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.82rem;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: translateY(-1px);
+      }
+    }
+  }
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1rem;
+    height: 50px;
+
+    .nav-links {
+      gap: 0.15rem;
+
+      a {
+        padding: 0.35rem 0.65rem;
+        font-size: 0.78rem;
+      }
+    }
+  }
+}
