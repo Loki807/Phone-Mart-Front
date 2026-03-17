@@ -1,0 +1,58 @@
+
+========================================================
+  WHOLESALE CRUD + PHOTO TEST
+========================================================
+
+--- Step 1: Login as Shop Owner ---
+  [PASS] Owner login OK (token len=351)
+
+--- Step 2: Get My Wholesale Listings (Before) ---
+  [PASS] GET /shop/wholesale → 200 (2 listings)
+  [INFO]   "TEST - Bulk Screens with Photo" | Image: https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=200
+  [INFO]   "30x iPhone 14 Screens (Original) - 20 SOLD" | Image: NONE
+
+--- Step 3: CREATE Wholesale Listing (with Image URL) ---
+  [PASS] CREATE wholesale → 200 (ID: 45749880-4db1-41fb-b8e8-f52d2ee9c0f3)
+
+--- Step 4: READ — Verify Created Listing Has Image ---
+  [PASS] READ → ImageUrl is SET correctly: https://images.unsplash.com/photo-1511707171634-5f897ff02aa9...
+  [INFO]   Title: "TEST - Bulk Screens with Photo"
+  [INFO]   UnitPrice: 3500
+  [INFO]   Condition: New
+
+--- Step 5: UPDATE — Change Image URL ---
+  [PASS] UPDATE wholesale → 200 (image changed)
+  [PASS] VERIFY UPDATE → New ImageUrl confirmed ✓
+  [INFO]   Title now: "TEST - Updated Screens Photo"
+  [INFO]   Price now: 4000
+  [INFO]   Image now: https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=200
+
+--- Step 6: UPDATE — Remove Image (empty URL) ---
+  [PASS] UPDATE (remove image) → 200
+  [PASS] VERIFY REMOVE → ImageUrl is now empty ✓
+
+--- Step 7: UPDATE — Add Image Back ---
+  [PASS] UPDATE (add image back) → 200
+  [PASS] VERIFY RE-ADD → ImageUrl is back ✓
+
+--- Step 8: Image Upload Endpoint (wholesale folder) ---
+  [PASS] POST /images/upload?folder=wholesale (no file) → 400 (correctly rejected, endpoint works)
+
+--- Step 9: DELETE — Clean Up Test Listing ---
+  [PASS] DELETE wholesale/45749880-4db1-41fb-b8e8-f52d2ee9c0f3 → 200 ✓
+  [PASS] VERIFY DELETE → Listing removed (count: 2) ✓
+
+--- Step 10: Wholesale Marketplace (Browse All) ---
+  [PASS] GET /wholesale → 200 (2 total listings)
+  [INFO]   "TEST - Bulk Screens with Photo" | Image: https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=200 | Seller: Jaffna Mobile Hub
+  [INFO]   "30x iPhone 14 Screens (Original) - 20 SOLD" | Image: NONE | Seller: Jaffna Mobile Hub
+
+========================================================
+  WHOLESALE CRUD + PHOTO TEST — FINAL REPORT
+========================================================
+  Total Tests:    14
+  Passed:         14
+  Failed:         0
+  Success Rate:   100.0%
+  Verdict:        ALL TESTS PASSED ✓
+========================================================
