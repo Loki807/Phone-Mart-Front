@@ -71,7 +71,7 @@ import { ApiService } from '../../core/services/api.service';
                  placeholder="Search phones, parts, brands..." 
                  [(ngModel)]="searchQuery"
                  (focus)="openFilters()"
-                 (keyup.enter)="search()"
+                 (keyup.enter)="search(true)"
                  class="search-bar-input"
                  id="search-input" />
           <div class="search-bar-filter-hint" [class.hidden]="filtersOpen">
@@ -92,7 +92,7 @@ import { ApiService } from '../../core/services/api.service';
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect></svg>
                 Category
               </label>
-              <select [(ngModel)]="selectedCategory" (ngModelChange)="search()" class="filter-select">
+              <select [(ngModel)]="selectedCategory" (ngModelChange)="search(true)" class="filter-select">
                 <option [value]="null">All Categories</option>
                 @for (c of categories(); track c.id) {
                   <option [value]="c.id">{{ c.name }}</option>
@@ -105,7 +105,7 @@ import { ApiService } from '../../core/services/api.service';
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 City
               </label>
-              <select [(ngModel)]="selectedCity" (ngModelChange)="search()" class="filter-select">
+              <select [(ngModel)]="selectedCity" (ngModelChange)="search(true)" class="filter-select">
                 <option value="">All Cities</option>
                 <option value="Colombo">Colombo</option>
                 <option value="Jaffna">Jaffna</option>
@@ -119,7 +119,7 @@ import { ApiService } from '../../core/services/api.service';
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
                 Brand
               </label>
-              <select [(ngModel)]="selectedBrand" (ngModelChange)="search()" class="filter-select">
+              <select [(ngModel)]="selectedBrand" (ngModelChange)="search(true)" class="filter-select">
                 <option [value]="null">All Brands</option>
                 @for (b of brands(); track b.id) {
                   <option [value]="b.id">{{ b.name }}</option>
@@ -128,7 +128,7 @@ import { ApiService } from '../../core/services/api.service';
             </div>
 
             <div class="filter-actions">
-              <button class="btn-filter-search" (click)="search()">
+              <button class="btn-filter-search" (click)="search(true)">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
                 Search
               </button>
@@ -146,25 +146,25 @@ import { ApiService } from '../../core/services/api.service';
             @if (selectedCategory) {
               <span class="filter-tag">
                 {{ getCategoryName(selectedCategory) }}
-                <button (click)="selectedCategory = null; search()">×</button>
+                <button (click)="selectedCategory = null; search(true)">×</button>
               </span>
             }
             @if (selectedCity) {
               <span class="filter-tag">
                 {{ selectedCity }}
-                <button (click)="selectedCity = ''; search()">×</button>
+                <button (click)="selectedCity = ''; search(true)">×</button>
               </span>
             }
             @if (selectedBrand) {
               <span class="filter-tag">
                 {{ getBrandName(selectedBrand) }}
-                <button (click)="selectedBrand = null; search()">×</button>
+                <button (click)="selectedBrand = null; search(true)">×</button>
               </span>
             }
             @if (searchQuery) {
               <span class="filter-tag">
                 "{{ searchQuery }}"
-                <button (click)="searchQuery = ''; search()">×</button>
+                <button (click)="searchQuery = ''; search(true)">×</button>
               </span>
             }
           </div>
@@ -249,19 +249,19 @@ import { ApiService } from '../../core/services/api.service';
                       {{ p.shopName }}
                     </a>
                   </div>
-                  @if (p.city) {
+                  @if (p.shopCity) {
                     <span class="shop-city">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                      {{ p.city }}
+                      {{ p.shopCity }}
                     </span>
                   }
                 </div>
                 <div class="contact-actions">
-                  <a [href]="'https://wa.me/' + p.whatsAppNumber" target="_blank" class="contact-btn btn-wa">
+                  <a [href]="'https://wa.me/' + p.shopWhatsApp" target="_blank" class="contact-btn btn-wa">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.243-1.218l-.257-.154-2.665.699.711-2.595-.17-.269A7.96 7.96 0 014 12a8 8 0 1116 0 8 8 0 01-8 8z"/></svg>
                     WhatsApp
                   </a>
-                  <a [href]="'tel:' + p.callNumber" class="contact-btn btn-call">
+                  <a [href]="'tel:' + p.shopCallNumber" class="contact-btn btn-call">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                     Call
                   </a>
@@ -270,6 +270,14 @@ import { ApiService } from '../../core/services/api.service';
             </div>
           }
         </div>
+        
+        @if (products().length > 0 && hasMore) {
+          <div class="load-more-container mt-4 text-center">
+            <button class="btn btn-outline" style="min-width: 200px" (click)="loadMore()" [disabled]="isLoadingMore">
+              {{ isLoadingMore ? 'Loading...' : 'Load More Products' }}
+            </button>
+          </div>
+        }
       }
       </div>
       </section>
@@ -286,6 +294,10 @@ export class HomeComponent implements OnInit {
   isLoading = signal(true);
   filtersOpen = false;
 
+  currentPage = 1;
+  hasMore = true;
+  isLoadingMore = false;
+
   searchQuery = '';
   selectedCategory: number | null = null;
   selectedCity = '';
@@ -294,7 +306,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.api.getCategories().subscribe(res => this.categories.set(res));
     this.api.getBrands().subscribe(res => this.brands.set(res));
-    this.search(); // initial load
+    this.search(true); // initial load
   }
 
   openFilters() {
@@ -309,19 +321,48 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  search() {
-    this.isLoading.set(true);
-    this.api.searchProducts(this.searchQuery, this.selectedCategory || undefined, this.selectedCity || undefined)
-      .subscribe({
+  search(reset = true) {
+    if (reset) {
+      this.currentPage = 1;
+      this.hasMore = true;
+      this.isLoading.set(true);
+    } else {
+      this.isLoadingMore = true;
+    }
+
+    this.api.searchProducts(
+      this.searchQuery, 
+      this.selectedCategory || undefined, 
+      this.selectedCity || undefined, 
+      this.selectedBrand || undefined, 
+      this.currentPage
+    ).subscribe({
         next: (data) => {
-          this.products.set(data);
-          this.isLoading.set(false);
+          if (data.length < 20) {
+            this.hasMore = false;
+          }
+
+          if (reset) {
+            this.products.set(data);
+            this.isLoading.set(false);
+          } else {
+            this.products.set([...this.products(), ...data]);
+            this.isLoadingMore = false;
+          }
         },
         error: (err: any) => {
           console.error(err);
           this.isLoading.set(false);
+          this.isLoadingMore = false;
         }
       });
+  }
+
+  loadMore() {
+    if (this.hasMore && !this.isLoadingMore) {
+      this.currentPage++;
+      this.search(false);
+    }
   }
 
   clearFilters() {
@@ -329,7 +370,7 @@ export class HomeComponent implements OnInit {
     this.selectedCategory = null;
     this.selectedCity = '';
     this.selectedBrand = null;
-    this.search();
+    this.search(true);
   }
 
   hasActiveFilters(): boolean {

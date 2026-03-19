@@ -35,17 +35,22 @@ import { ApiService } from '../../core/services/api.service';
             </div>
             
             <div class="form-group">
-              <label>Category (1=Used, 2=New, 3=Accessories)</label>
+              <label>Category</label>
               <select class="form-control" [(ngModel)]="product.categoryId" name="categoryId" required>
-                <option [value]="1">Used Phones</option>
-                <option [value]="2">New Phones</option>
-                <option [value]="3">Accessories</option>
+                @for (c of categories(); track c.id) {
+                  <option [value]="c.id">{{ c.name }}</option>
+                }
               </select>
             </div>
 
             <div class="form-group">
-              <label>Brand ID (1=Apple, 2=Samsung...)</label>
-              <input type="number" class="form-control" [(ngModel)]="product.brandId" name="brandId" required>
+              <label>Brand</label>
+              <select class="form-control" [(ngModel)]="product.brandId" name="brandId">
+                <option [ngValue]="null">No Brand / Other</option>
+                @for (b of brands(); track b.id) {
+                  <option [value]="b.id">{{ b.name }}</option>
+                }
+              </select>
             </div>
             
             <div class="form-group">
@@ -60,6 +65,11 @@ import { ApiService } from '../../core/services/api.service';
             <div class="form-group col-span-full">
               <label>Description</label>
               <textarea class="form-control" [(ngModel)]="product.description" name="description" rows="3" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Stock Quantity</label>
+              <input type="number" class="form-control" [(ngModel)]="product.stockQuantity" name="stockQuantity" required min="0" placeholder="e.g. 5">
             </div>
 
             <div class="form-group col-span-full">
@@ -90,9 +100,9 @@ import { ApiService } from '../../core/services/api.service';
               <div class="form-group col-span-full">
                 <label>Status</label>
                 <select class="form-control" [(ngModel)]="product.status" name="status" required>
-                  <option [value]="0">Active</option>
-                  <option [value]="1">Sold</option>
-                  <option [value]="2">Hidden</option>
+                  <option [value]="1">Active</option>
+                  <option [value]="2">Sold</option>
+                  <option [value]="3">Hidden</option>
                 </select>
               </div>
             }
@@ -108,6 +118,16 @@ import { ApiService } from '../../core/services/api.service';
 
       <!-- PRODUCTS DATATABLE -->
       <div class="card mt-2">
+        <div class="filters" style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+          <input type="text" class="form-control" style="flex: 1;" placeholder="Search products by title..." [(ngModel)]="searchTerm">
+          <select class="form-control" style="width: auto;" [(ngModel)]="filterStatus">
+            <option value="All">All Statuses</option>
+            <option value="Active">Active</option>
+            <option value="Sold">Sold</option>
+            <option value="Hidden">Hidden</option>
+          </select>
+        </div>
+
         @if (isLoading()) {
           <div class="loader">Loading your products...</div>
         } @else {
@@ -116,16 +136,20 @@ import { ApiService } from '../../core/services/api.service';
               <tr>
                 <th>Title</th>
                 <th>Price</th>
+                <th>Stock</th>
                 <th>Condition</th>
                 <th>Status</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody>
-              @for (p of myProducts(); track p.id) {
+              @for (p of filteredProducts; track p.id) {
                 <tr>
                   <td><strong>{{ p.title }}</strong></td>
                   <td>LKR {{ p.price | number:'1.2-2' }}</td>
+                  <td>
+                    <span [style.color]="p.stockQuantity < 3 ? '#ef4444' : '#22c55e'" style="font-weight: 600;">{{ p.stockQuantity }}</span>
+                  </td>
                   <td>{{ p.condition }}</td>
                   <td>
                     <span class="badge" 
@@ -140,9 +164,9 @@ import { ApiService } from '../../core/services/api.service';
                   </td>
                 </tr>
               }
-              @if (myProducts().length === 0) {
+              @if (filteredProducts.length === 0) {
                 <tr>
-                  <td colspan="5" class="text-center">You haven't added any products yet.</td>
+                  <td colspan="6" class="text-center">No products found.</td>
                 </tr>
               }
             </tbody>
@@ -157,12 +181,18 @@ export class OwnerProductsComponent implements OnInit {
   private api = inject(ApiService);
 
   myProducts = signal<any[]>([]);
+  categories = signal<any[]>([]);
+  brands = signal<any[]>([]);
+  
   isLoading = signal(true);
 
   showForm = signal(false);
   isSubmitting = signal(false);
   errorMsg = signal('');
   isUploading = signal(false);
+
+  searchTerm = '';
+  filterStatus = 'All';
 
   // Track if we are editing
   currentProductId = signal<string | null>(null);
@@ -171,6 +201,20 @@ export class OwnerProductsComponent implements OnInit {
 
   ngOnInit() {
     this.loadProducts();
+    this.loadLookups();
+  }
+
+  loadLookups() {
+    this.api.getCategories().subscribe(res => this.categories.set(res));
+    this.api.getBrands().subscribe(res => this.brands.set(res));
+  }
+
+  get filteredProducts() {
+    return this.myProducts().filter(p => {
+      const matchSearch = p.title.toLowerCase().includes(this.searchTerm.toLowerCase());
+      const matchStatus = this.filterStatus === 'All' || p.status === this.filterStatus;
+      return matchSearch && matchStatus;
+    });
   }
 
   loadProducts() {
@@ -189,8 +233,8 @@ export class OwnerProductsComponent implements OnInit {
 
   getEmptyProduct() {
     return {
-      categoryId: 1, brandId: 1, title: '', description: '',
-      price: 0, condition: 'Good', status: 0, imageUrl: '' // Default to Active when editing
+      categoryId: 1, brandId: null, title: '', description: '',
+      price: 0, condition: 'Good', stockQuantity: 1, status: 1, imageUrl: '' // Default to Active (1)
     };
   }
 
@@ -230,18 +274,19 @@ export class OwnerProductsComponent implements OnInit {
     this.errorMsg.set('');
 
     // Map string status back to enum int for the form
-    let mappedStatus = 0;
-    if (p.status === 'Sold') mappedStatus = 1;
-    if (p.status === 'Hidden') mappedStatus = 2;
+    let mappedStatus = 1;
+    if (p.status === 'Sold') mappedStatus = 2;
+    if (p.status === 'Hidden') mappedStatus = 3;
 
     this.product = {
       productId: p.id,
-      categoryId: p.categoryId || 1, // backend might not return ID in generic list, need actual full object if missing. Assuming basic match.
-      brandId: p.brandId || 1, // Warning: In your backend ProductDto, CategoryName/BrandName are returned, but maybe not the IDs. We may need to pass them or default them for the edit form.
+      categoryId: p.categoryId || 1, 
+      brandId: p.brandId || null, 
       title: p.title,
       description: p.description,
       price: p.price,
       condition: p.condition,
+      stockQuantity: p.stockQuantity ?? 1,
       imageUrl: p.imageUrl || '',
       status: mappedStatus
     };
@@ -253,7 +298,7 @@ export class OwnerProductsComponent implements OnInit {
 
     // Since we are taking numeric values from form select, ensure they are numbers
     this.product.categoryId = Number(this.product.categoryId);
-    this.product.brandId = Number(this.product.brandId);
+    this.product.brandId = this.product.brandId ? Number(this.product.brandId) : null;
     this.product.status = Number(this.product.status);
 
     if (this.currentProductId()) {

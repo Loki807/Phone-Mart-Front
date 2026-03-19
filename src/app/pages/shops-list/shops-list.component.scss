@@ -1,0 +1,126 @@
+.shops-directory {
+  padding: 2rem 0;
+}
+
+.hero {
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), rgba(var(--secondary-rgb), 0.1));
+    z-index: 0;
+  }
+}
+
+.hero-container {
+  position: relative;
+  z-index: 1;
+}
+
+.title-glow {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--text-primary), var(--primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.hero-search-box {
+  display: flex;
+  background: var(--surface);
+  border-radius: 999px;
+  padding: 0.5rem;
+  box-shadow: var(--shadow-sm);
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+
+  .search-input-group {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    gap: 0.5rem;
+
+    .search-icon {
+      color: var(--text-muted);
+    }
+    
+    .search-select {
+      border: none;
+      background: transparent;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+
+  .search-divider {
+    width: 1px;
+    height: 24px;
+    background: var(--border);
+  }
+
+  .btn-search {
+    border-radius: 999px;
+    padding: 0.75rem 2rem;
+  }
+}
+
+.shop-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.shop-header {
+  text-align: center;
+}
+
+.shop-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.shop-city {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.shop-stats p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.shop-card-footer {
+  padding: 1.25rem;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}

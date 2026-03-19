@@ -23,9 +23,9 @@ import { ApiService } from '../../core/services/api.service';
                 <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                 <select class="form-control search-select" [(ngModel)]="selectedItemType">
                   <option value="">All Types</option>
-                  <option value="Phones">Phones</option>
-                  <option value="Parts">Parts</option>
-                  <option value="Accessories">Accessories</option>
+                  <option value="1">Phones</option>
+                  <option value="3">Parts</option>
+                  <option value="2">Accessories</option>
                 </select>
               </div>
               <div class="search-divider"></div>
@@ -71,8 +71,8 @@ import { ApiService } from '../../core/services/api.service';
                       </svg>
                     </div>
                   }
-                  <span class="badge" [class.badge-new]="l.itemType === 'Phones'" 
-                                     [class.badge-active]="l.itemType !== 'Phones'">
+                  <span class="badge" [class.badge-new]="l.itemType === 'Phone'" 
+                                     [class.badge-active]="l.itemType !== 'Phone'">
                     {{ l.itemType }}
                   </span>
                 </div>
@@ -106,7 +106,7 @@ import { ApiService } from '../../core/services/api.service';
                     </div>
                   </div>
                   <div class="contact-actions">
-                    <a [href]="'https://wa.me/' + l.whatsAppNumber" target="_blank" class="contact-btn btn-wa">
+                    <a [href]="'https://wa.me/' + l.sellerWhatsApp" target="_blank" class="contact-btn btn-wa">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                       Contact Supplier
                     </a>

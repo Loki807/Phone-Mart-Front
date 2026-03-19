@@ -25,13 +25,23 @@ export class ApiService {
         return this.http.get<any[]>(`${this.apiUrl}/public/brands`);
     }
 
-    searchProducts(query?: string, category?: number, city?: string): Observable<any[]> {
+    searchProducts(query?: string, category?: number, city?: string, brand?: number, page: number = 1, pageSize: number = 20): Observable<any[]> {
         let params = new HttpParams();
         if (query) params = params.set('q', query);
         if (category) params = params.set('category', category.toString());
         if (city) params = params.set('city', city);
+        if (brand) params = params.set('brand', brand.toString());
+        params = params.set('page', page.toString());
+        params = params.set('pageSize', pageSize.toString());
 
         return this.http.get<any[]>(`${this.apiUrl}/public/search`, { params });
+    }
+
+    getAllShopsPublic(query?: string, city?: string): Observable<any[]> {
+        let params = new HttpParams();
+        if (query) params = params.set('q', query);
+        if (city) params = params.set('city', city);
+        return this.http.get<any[]>(`${this.apiUrl}/public/shops`, { params });
     }
 
     getShopPublic(shopId: string): Observable<any> {

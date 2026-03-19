@@ -10,10 +10,13 @@ import { OwnerWholesaleComponent } from './pages/owner/owner-wholesale.component
 import { authGuard } from './core/guards/auth.guard';
 import { roleGuard } from './core/guards/role.guard';
 
+import { ShopsListComponent } from './pages/shops-list/shops-list.component';
+
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'login', component: LoginComponent },
 
+    { path: 'shops', component: ShopsListComponent },
     { path: 'shops/:id', component: ShopComponent },
 
     // Admin Routes

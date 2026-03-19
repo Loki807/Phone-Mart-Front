@@ -11,8 +11,8 @@ import { AuthService } from '../../core/services/auth.service';
     <nav class="navbar">
       <div class="nav-brand">
         <a routerLink="/" class="brand-text">
-          <span class="brand-icon" style="background: transparent; overflow: hidden; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-            <img src="https://images.unsplash.com/photo-1598327105666-5b89351cb31b?auto=format&fit=crop&q=80&w=64&h=64" alt="PhoneMart Logo" style="width: 100%; height: 100%; object-fit: cover;">
+          <span class="brand-icon" style="display: inline-flex; overflow: hidden; border-radius: 50%; width: 40px; height: 40px; margin-right: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); background: white;">
+            <img src="/assets/logo.png" alt="PhoneMart Logo" style="width: 100%; height: 100%; object-fit: cover; transform: scale(1.1);">
           </span>
           PhoneMart
         </a>
@@ -22,6 +22,11 @@ import { AuthService } from '../../core/services/auth.service';
         <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
           Home
+        </a>
+
+        <a routerLink="/shops" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+          Shops
         </a>
 
         @if (authService.hasRole('Admin')) {
