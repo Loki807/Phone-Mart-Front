@@ -33,7 +33,7 @@ jobs:
 
       - name: 🗑️ Clear old files & Upload to S3
         run: |
-          aws s3 sync dist/PhoneMart-Frontend/browser/ s3://${{ secrets.S3_BUCKET }} --delete
+          aws s3 sync dist/PhoneMart-Frontend/ s3://${{ secrets.S3_BUCKET }} --delete
           # குறிப்பு: angular.json-ல் உள்ள outputPath-க்கு ஏற்ப இது இருக்க வேண்டும்
 
       - name: 🔄 Invalidate CloudFront Cache
