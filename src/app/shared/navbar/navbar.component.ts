@@ -12,7 +12,7 @@ import { AuthService } from '../../core/services/auth.service';
       <div class="nav-brand">
         <a routerLink="/" class="brand-text">
           <span class="brand-icon" style="display: inline-flex; overflow: hidden; border-radius: 50%; width: 40px; height: 40px; margin-right: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); background: white;">
-            <img src="/assets/logo.png" alt="PhoneMart Logo" style="width: 100%; height: 100%; object-fit: cover; transform: scale(1.1);">
+            <img src="/logo.png" alt="PhoneMart Logo" style="width: 100%; height: 100%; object-fit: cover; transform: scale(1.1);">
           </span>
           PhoneMart
         </a>
@@ -59,11 +59,6 @@ import { AuthService } from '../../core/services/auth.service';
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
             Logout
           </button>
-        } @else {
-          <a routerLink="/login" class="btn-login">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
-            Sign In
-          </a>
         }
       </div>
     </nav>

@@ -9,9 +9,13 @@ import { AuthService } from '../../core/services/auth.service';
     standalone: true,
     imports: [CommonModule, FormsModule],
     template: `
-    <div class="login-container animate-fade-in">
-      <div class="login-card card">
-        <div class="header">
+    <div class="login-wrapper animate-fade-in">
+      <div class="glow-bg"></div>
+      <div class="login-card">
+        <div class="brand-header">
+          <div class="brand-icon-wrapper">
+            <img src="/logo.png" alt="PhoneMart" />
+          </div>
           <h2>Welcome Back</h2>
           <p>Sign in to your PhoneMart account</p>
         </div>
@@ -37,7 +41,7 @@ import { AuthService } from '../../core/services/auth.service';
                    placeholder="••••••••" />
           </div>
 
-          <button type="submit" class="btn btn-primary w-100" [disabled]="isLoading()">
+          <button type="submit" class="btn-login-submit" [disabled]="isLoading()">
             {{ isLoading() ? 'Signing in...' : 'Sign In' }}
           </button>
         </form>
