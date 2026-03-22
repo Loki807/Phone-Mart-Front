@@ -201,3 +201,24 @@
   25% { transform: translateX(-4px); }
   75% { transform: translateX(4px); }
 }
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 2.5rem 1.5rem;
+    border-radius: 0;
+    min-height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: none;
+    background: white;
+
+    .brand-header {
+      h2 { font-size: 1.5rem; }
+    }
+  }
+
+  .glow-bg {
+    display: none;
+  }
+}
