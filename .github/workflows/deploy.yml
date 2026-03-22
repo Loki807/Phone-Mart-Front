@@ -3,8 +3,6 @@ name: 🚀 Deploy Frontend to S3 + CloudFront
 on:
   push:
     branches: [main]
-    paths:
-      - 'PhoneMart-Frontend/**'
 
 jobs:
   deploy:
@@ -21,11 +19,9 @@ jobs:
           node-version: '18'
 
       - name: 📚 Install dependencies
-        working-directory: PhoneMart-Frontend
         run: npm ci
 
       - name: 🔨 Build Angular app
-        working-directory: PhoneMart-Frontend
         run: npx ng build --configuration=production
 
       - name: 🔑 Configure AWS Credentials
@@ -37,7 +33,8 @@ jobs:
 
       - name: 🗑️ Clear old files & Upload to S3
         run: |
-          aws s3 sync PhoneMart-Frontend/dist/PhoneMart-Frontend/browser/ s3://${{ secrets.S3_BUCKET }} --delete
+          aws s3 sync dist/PhoneMart-Frontend/browser/ s3://${{ secrets.S3_BUCKET }} --delete
+          # குறிப்பு: angular.json-ல் உள்ள outputPath-க்கு ஏற்ப இது இருக்க வேண்டும்
 
       - name: 🔄 Invalidate CloudFront Cache
         run: |
